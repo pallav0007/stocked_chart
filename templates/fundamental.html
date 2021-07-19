@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/fundamental" method="post" enctype="">
+
+<!--    <input style="alignment: center" placeholder="Search using tag" type="text" name="image">-->
+ <h3 style="text-align: center">Choose Company</h3>
+    <div  style="padding: 2%">
+    <input class="form-control" type="text" id="ajax" list="json-datalist" name="fname" placeholder="choose company name" value="{{request.form['fname']}}">
+    </div>
+<datalist id="json-datalist">
+    {% for item in dept %}
+   <option value="{{ item }}">
+   {% endfor %}
+</datalist>
+    <input class="card-link" type="submit" value="Submit">
+</form>
+<h4 style="background-color: darkred;color: white">{{error}}</h4>
+
+{{code|safe}}
+{% endblock %}

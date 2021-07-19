@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/" method="post" enctype="">
+
+<!--    <input style="alignment: center" placeholder="Search using tag" type="text" name="image">-->
+ <h3 style="text-align: center">Choose Company</h3>
+    <div  style="padding: 2%">
+    <input class="form-control" type="text" id="ajax" list="json-datalist" name="image" placeholder="choose company name" value="{{request.form['image']}}">
+    </div>
+<datalist id="json-datalist">
+    {% for item in dept %}
+   <option value="{{ item }}">
+   {% endfor %}
+</datalist>
+    <h3 style="text-align: center">Chart type</h3>
+    <div  style="padding: 2%">
+<input class="form-control" type="text" id="chart-dropdown" list="chart-types" name="charts" placeholder="choose charttype" value="{{request.form['charts']}}">
+    </div>
+<datalist id="chart-types">
+    {% for item in charts %}
+   <option value="{{ item }}">
+   {% endfor %}
+</datalist>
+    <input class="card-link" type="submit" value="Submit">
+</form>
+{{name}}
+{{code|safe}}
+{% endblock %}
